@@ -407,6 +407,8 @@ class FH_UltimateBot(ctk.CTk):
                 val = "0"
             self.entry_sc.delete(0, "end")
             self.entry_sc.insert(0, val)
+            self.entry_cj.delete(0, "end")
+            self.entry_cj.insert(0, val)
         except Exception:
             pass
 
@@ -4004,7 +4006,7 @@ class FH_UltimateBot(ctk.CTk):
                     break
 
                 self.hw_press("esc")
-                time.sleep(0.5)
+                time.sleep(1.5)
 
             if not pos_sjy:
                 self.log("找不到升级页面")
@@ -4328,7 +4330,7 @@ class FH_UltimateBot(ctk.CTk):
                 
 
             brand_pos = self.wait_for_any_image_gray(
-                ["CCbrand.png"],
+                ["CCbrand.png", "CCbrand-b.png"],
                 region=self.regions["全界面"],
                 threshold=0.75,
                 timeout=0.8,
