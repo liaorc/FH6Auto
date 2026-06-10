@@ -44,7 +44,7 @@ if errorlevel 1 (
 )
 
 echo.
-echo [3/3] 打包完成！
+echo [3/3] 打包完成!
 echo 输出目录: dist\%APP_NAME%.exe
 echo.
 pause
