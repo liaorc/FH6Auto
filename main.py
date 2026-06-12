@@ -455,23 +455,28 @@ class FH_UltimateBot(ctk.CTk):
         # 1. 直接使用内置字典作为“绝对底本”（最安全，无视打包丢文件问题）
         self.config = {
             "race_count": 99,
-            "buy_count": 30, 
-            "cj_count": 30, 
-            "sc_count": 30,
-            "chk_1": True, 
-            "chk_2": True, 
-            "chk_3": True, 
-            "chk_4": True,
-            "next_1": 2, 
-            "next_2": 3, 
-            "next_3": 1, 
+            "buy_count": 10,
+            "cj_count": 10,
+            "sc_count": 10,
+            "chk_1": False,
+            "chk_2": True,
+            "chk_3": True,
+            "chk_4": False,
+            "next_1": 2,
+            "next_2": 3,
+            "next_3": 4,
             "next_4": 1,
-            "global_loops": 10, 
+            "global_loops": 3,
             "skill_dirs": ["right", "up", "up", "up", "left"],
-            "share_code": "890169683", 
+            "share_code": "409742297",
             "auto_restart": False,
-            "restart_cmd": "start steam://run/2483190", 
-            "sell_mode": 1 
+            "restart_cmd": "start steam://run/2483190",
+            "sell_mode": 1,
+            "use_ocr": False,
+            "ocr_lang": "简体中文",
+            "calc_a": "10268096",
+            "calc_b": "81700",
+            "calc_c": "30"
         }
         ext_path = USER_CONFIG_FILE
         # 2. 读取用户的 config.json，并与底本合并（自动补全缺失项）
@@ -4039,9 +4044,9 @@ class FH_UltimateBot(ctk.CTk):
             if pos_exp:
                 self.log("该车辆技能已点过，跳过计数")
             else:
-                time.sleep(1.0)
+                time.sleep(0.2)
                 self.hw_press("enter")
-                time.sleep(1.5)
+                time.sleep(1)
 
                 for dk in self.config["skill_dirs"]:
                     if not self.is_running:
@@ -4049,7 +4054,7 @@ class FH_UltimateBot(ctk.CTk):
                     self.hw_press(dk)
                     time.sleep(0.2)
                     self.hw_press("enter")
-                    time.sleep(1.2)
+                    time.sleep(0.5)
 
                 spne_found = self.find_image_gray("SPNE.png", region=self.regions["全界面"], threshold=0.70)
                 
