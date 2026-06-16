@@ -2254,7 +2254,8 @@ class FH_UltimateBot(ctk.CTk):
             s = round(float(s), 3)
             if 0.45 <= s <= 1.8 and s not in scales:
                 scales.append(s)
-        # 先加“最可能正确”的比例及其微调
+        # 先加”最可能正确”的比例及其微调
+        add_scale(1.0)
         add_scale(primary_scale)
         add_scale(primary_scale * 0.98)
         add_scale(primary_scale * 1.02)
@@ -3632,8 +3633,8 @@ class FH_UltimateBot(ctk.CTk):
                 now = time.time()
                 
                 # 【新增逻辑】：120秒超时防卡死检测
-                if now - race_start_time > 120.0:
-                    self.log("跑图超时(已超过120秒)！触发强制重开赛事逻辑...")
+                if now - race_start_time > 210.0:
+                    self.log("跑图超时(已超过210秒)！触发强制重开赛事逻辑...")
                     timeout_triggered = True
                     break
                 
