@@ -3854,8 +3854,8 @@ class FH_UltimateBot(ctk.CTk):
             return True
 
         self.update_running_ui("超级抽奖", self.cj_counter, target_count)
-        # 【新增】：初始化记忆页码
-        if not hasattr(self, 'memory_car_page'):
+        # 每次新一轮超级抽奖开始时重置记忆页码
+        if self.cj_counter == 0:
             self.memory_car_page = 0
         self.log("准备验证/进入菜单...")
         if not self.enter_menu():
