@@ -3462,7 +3462,7 @@ class FH_UltimateBot(ctk.CTk):
         self.hw_press("up")
         time.sleep(0.4)
         self.hw_press("enter")
-        time.sleep(0.8)
+        time.sleep(2)
 
         code_text = "".join(c for c in self.entry_share.get() if c.isdigit())
         for char in code_text:
