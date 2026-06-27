@@ -2867,8 +2867,8 @@ class FH_UltimateBot(ctk.CTk):
 
                 
                 points = list(zip(*loc[::-1]))
-                # 强制按 X 坐标（从左到右）优先排序，无视上下排
-                points.sort(key=lambda p: (p[1] // 50, p[0]))
+                # 小键盘顺序: 先 x 左到右，再 y 上到下
+                points.sort(key=lambda p: (p[0], p[1]))
                 
                 checked = set()
                 for pt in points:
